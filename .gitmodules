@@ -1,0 +1,6 @@
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:kafanasyev97/pushkin.git
+[submodule "backend"]
+	path = backend
+	url = git@github.com:kafanasyev97/pushkin_backend.git
