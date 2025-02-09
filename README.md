@@ -1,17 +1,24 @@
-1. Сделать команды:
-   git submodule add git@github.com:kafanasyev97/pushkin.git frontend
-   git submodule add git@github.com:kafanasyev97/pushkin_backend.git backend
+# Описание проекта:
 
-2. Создать файлы .env в backend и frontend
-   back:
-   DB_HOST
-   DB_PORT
-   DB_NAME
-   DB_USERNAME
-   DB_PASSWORD
+Проект представляет из себя страницу с карточками(frontend). Дизайн адаптивный, подстраивается под размер экрана. Реализована возможность добавления и удаления карточек.
 
-   front:
-   VITE_API_URL - URL бэкенда
+Получение списка карточек происходит путем отправки запросов на сервер(backend). Сервер в свою очередь обращается к базе данных, получает ответ и отправляет его на страницу.
 
-3. Команда для запуска контейнера docker-compose up --build
-   обновить все подмодули git submodule update --init --recursive (????)
+#### В проекте используется система подмодулей. frontend и backend - это отдельные репозитории. Для разработки рекомендуется запускать эти проекты по отдельности.
+
+## Запуск проекта
+
+В режиме проды:
+
+1. Клонируем проект;
+2. Чтобы впервые затянуть подмодули используем команду git submodule update --init --recursive;
+3. Добавляем вручную файлы .env в директорию frontend и backend. Содержимое этих файлов будет описано в файле README каждого репозитория;
+4. В корне проекта есть файл docker-compose.yml для запуска контейнеров подмодулей. Команда для запуска: docker-compose up --build (если docker-compose не установлен, можно использовать docker compose up --build);
+5. По итогу будет запущено 2 контейнера(frontend и backend), каждый из которых пробрасывает определенный порт(frontend - 8080, backend - 3000). Порты можно изменить в проекте.
+
+В режиме разработки:
+
+1. Клонируем проекты отдельно. Ссылки на репозитории: frontend: https://github.com/kafanasyev97/pushkin; backend: https://github.com/kafanasyev97/pushkin_backend;
+2. Инструкция по запуску каждого проекта в файлах README внутри репозиториев.
+
+### Для подтягивания изменений в подмодулях, используется команда git submodule update --remote --recursive.
